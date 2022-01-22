@@ -24,7 +24,7 @@ const HomeScreen = () => {
   const [price, setPrice] = useState('');
 
   return (
-    <View>
+    <ScrollView>
       <NavSection />
       <View style={styles.homeCover}>
         <TouchableWithoutFeedback onPress={() => setPayment(!payment)}>
@@ -305,7 +305,7 @@ const HomeScreen = () => {
           </View>
         </View>
       </Modal>
-    </View>
+    </ScrollView>
   );
 };
 
