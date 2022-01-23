@@ -28,6 +28,7 @@ import {
 import NavSection from './src/components/nav/nav';
 import HomeScreen from './src/pages/home/home';
 import RecordScreen from './src/pages/records/records';
+import WalletScreen from './src/pages/wallet/wallet';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -67,7 +68,8 @@ const App: () => Node = () => {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       {/* <HomeScreen /> */}
-      <RecordScreen />
+      {/* <RecordScreen /> */}
+      <WalletScreen />
     </SafeAreaView>
   );
 };
