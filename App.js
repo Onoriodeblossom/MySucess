@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -30,7 +29,7 @@ import HomeScreen from './src/pages/home/home';
 import RecordScreen from './src/pages/records/records';
 import WalletScreen from './src/pages/wallet/wallet';
 
-const Section = ({children, title}): Node => {
+const Section = () => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -56,7 +55,7 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const App: () => Node = () => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -68,11 +67,12 @@ const App: () => Node = () => {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       {/* <HomeScreen /> */}
-      {/* <RecordScreen /> */}
-      <WalletScreen />
+      <RecordScreen />
+      {/* <WalletScreen /> */}
     </SafeAreaView>
   );
 };
+
 
 const styles = StyleSheet.create({
   sectionContainer: {
