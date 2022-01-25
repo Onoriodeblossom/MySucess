@@ -83,6 +83,7 @@ const RecordScreen = () => {
     <View style={{backgroundColor:"#fff", flex:1
     }}>
       
+      
     <ScrollView>
       <NavSection />
       <View style={{width: '90%', marginLeft: 'auto', marginRight: 'auto'}}>
