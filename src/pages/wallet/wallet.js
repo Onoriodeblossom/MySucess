@@ -5,12 +5,6 @@ import {
   Text,
   TouchableWithoutFeedback,
   ScrollView,
-  //   Image,
-  //   Keyboard,
-  //   TouchableOpacity,
-  //   KeyboardAvoidingView,
-  //   BackgroundImage,
-  //   ImageBackground,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import React, {useState} from 'react';
@@ -18,6 +12,7 @@ import NavSection from '../../components/nav/nav';
 
 const WalletScreen = () => {
   return (
+    <View style={{ flex:1, backgroundColor:"#fff"}}>
     <ScrollView>
       <NavSection />
 
@@ -51,6 +46,7 @@ const WalletScreen = () => {
         </View>
       </View>
     </ScrollView>
+    </View>
   );
 };
 
@@ -59,6 +55,8 @@ export default WalletScreen;
 const styles = StyleSheet.create({
   WalletScreenCover: {
     width: '90%',
+    flex:1,
+    height:520,
     marginLeft: 'auto',
     marginRight: 'auto',
   },

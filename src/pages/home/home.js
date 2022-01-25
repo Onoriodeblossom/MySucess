@@ -24,258 +24,212 @@ const HomeScreen = () => {
   const [price, setPrice] = useState('');
 
   return (
-    <ScrollView>
-      <NavSection />
-      <View style={styles.homeCover}>
-        <TouchableWithoutFeedback onPress={() => setPayment(!payment)}>
-          <View style={styles.provideCover}>
-            <Text
-              style={{
-                color: '#fff',
-                textAlign: 'center',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}>
-              Provide Payment Details
-            </Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <Text style={{color: '#000', marginBottom: 30}}>
-          Upload course materials
-        </Text>
-
-        <Text style={{color: '#50B12F', marginBottom: 30, fontWeight: 'bold'}}>
-          Program
-        </Text>
-
-        <View style={styles.programCover}>
-          <View style={styles.codeCover}>
-            <Text style={{color: '#000'}}>Under-Graduate</Text>
-            <View style={styles.courseCover}>
-              <Text
-                style={{
-                  color: '#C4C4C4',
-                  textAlign: 'center',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}>
-                Course Code
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.codeCover}>
-            <Text style={{color: '#000'}}>M. Sc</Text>
-            <View style={styles.courseCover}>
-              <Text
-                style={{
-                  color: '#C4C4C4',
-                  textAlign: 'center',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}>
-                Course Code
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.codeCover}>
-            <Text style={{color: '#000'}}>Ph. D</Text>
-            <View style={styles.courseCover}>
-              <Text
-                style={{
-                  color: '#C4C4C4',
-                  textAlign: 'center',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}>
-                Course Code
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.codeCover}>
-            <Text style={{color: '#000'}}>Part-time</Text>
-            <View style={styles.courseCover}>
-              <Text
-                style={{
-                  color: '#C4C4C4',
-                  textAlign: 'center',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}>
-                Course Code
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.radioCover}>
-          <TouchableWithoutFeedback onPress={() => setSelectedRadio(true)}>
-            <View style={styles.radioContain}>
-              <View
-                style={{
-                  height: 24,
-                  width: 24,
-                  borderRadius: 12,
-                  borderWidth: 1,
-                  borderColor: '#707070',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                {selectedRadio ? (
-                  <View
-                    style={{
-                      height: 12,
-                      width: 12,
-                      borderRadius: 6,
-                      backgroundColor: '#707070',
-                    }}
-                  />
-                ) : null}
-              </View>
-              <Text style={{marginLeft: 7}}>Free</Text>
-            </View>
-          </TouchableWithoutFeedback>
-
-          <TouchableWithoutFeedback onPress={() => setSelectedRadio(false)}>
-            <View style={styles.radioContain}>
-              <View
-                style={{
-                  height: 24,
-                  width: 24,
-                  borderRadius: 12,
-                  borderWidth: 1,
-                  borderColor: '#707070',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                {!selectedRadio ? (
-                  <View
-                    style={{
-                      height: 12,
-                      width: 12,
-                      borderRadius: 6,
-                      backgroundColor: '#707070',
-                    }}
-                  />
-                ) : null}
-              </View>
-              <Text style={{marginLeft: 7}}>For Sale</Text>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-
-        <Text style={{color: '#807E7E', fontStyle: 'italic'}}>
-          *Use original file name
-        </Text>
-
-        <TouchableWithoutFeedback onPress={() => setUpload(!upload)}>
-          <View style={styles.btnCover}>
-            <Text style={{color: '#fff'}}>Upload</Text>
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
-
-      <Modal show={upload} close={() => setUpload(!upload)}>
-        <Text style={{fontWeight: 'bold', marginTop: 30}}>Upload Course</Text>
-        <View style={styles.uploadCover}>
-          <Text>
-            Upload PDF file (Max 2500kb){' '}
-            <Text style={{fontWeight: 'bold', color: '#50B12F'}}>Browse</Text>{' '}
-          </Text>
-        </View>
-
-        <Text style={{fontWeight: 'bold', marginTop: 10}}>
-          Upload Past Question (Optional)
-        </Text>
-        <View style={styles.uploadCover}>
-          <Text>
-            Upload PDF file (Max 2500kb){' '}
-            <Text style={{fontWeight: 'bold', color: '#50B12F'}}>Browse</Text>{' '}
-          </Text>
-        </View>
-
-        <Text style={{fontWeight: 'bold', marginTop: 10}}>
-          Upload Past Question (Optional)
-        </Text>
-        <TextInput
-          style={[styles.uploadCover, {height: 63, paddingLeft: 20}]}
-          onChangeText={setPrice}
-          value={price}
-          placeholder="Input Material Price"
-        />
-
-        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-          <TouchableWithoutFeedback onPress={() => setUpload(!upload)}>
-            <View
-              style={[
-                styles.provideCover,
-                {backgroundColor: '#C4C4C4', width: 160, height: 56},
-              ]}>
-              <Text
-                style={{
-                  color: '#fff',
-                  textAlign: 'center',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}>
-                Cancel
-              </Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <View
-            style={[
-              styles.provideCover,
-              {width: 160, height: 56, marginLeft: 10},
-            ]}>
-            <Text
-              style={{
-                color: '#fff',
-                textAlign: 'center',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}>
-              Save
-            </Text>
-          </View>
-        </View>
-      </Modal>
-
-      {/* payment modal section */}
-
-      <Modal show={payment} close={() => setPayment(!payment)}>
-        <Text style={{fontWeight: 'bold', marginTop: 30}}>
-          Provide your account details
-        </Text>
-
-        <TextInput
-          style={[styles.uploadCover, {height: 63, paddingLeft: 20}]}
-          onChangeText={setPrice}
-          value={price}
-          placeholder="Account Name"
-        />
-
-        <TextInput
-          style={[styles.uploadCover, {height: 63, paddingLeft: 20}]}
-          onChangeText={setPrice}
-          value={price}
-          placeholder="Bank"
-        />
-
-        <TextInput
-          style={[styles.uploadCover, {height: 63, paddingLeft: 20}]}
-          onChangeText={setPrice}
-          value={price}
-          placeholder="Account Number"
-        />
-
-<View style={{flexDirection: 'row', justifyContent: 'center'}}>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <ScrollView>
+        <NavSection />
+        <View style={styles.homeCover}>
           <TouchableWithoutFeedback onPress={() => setPayment(!payment)}>
+            <View style={styles.provideCover}>
+              <Text
+                style={{
+                  color: '#fff',
+                  textAlign: 'center',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}>
+                Provide Payment Details
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <Text style={{color: '#000', marginBottom: 30}}>
+            Upload course materials
+          </Text>
+
+          <Text
+            style={{color: '#50B12F', marginBottom: 30, fontWeight: 'bold'}}>
+            Program
+          </Text>
+
+          <View style={styles.programCover}>
+            <View style={styles.codeCover}>
+              <Text style={{color: '#000'}}>Under-Graduate</Text>
+              <View style={styles.courseCover}>
+                <Text
+                  style={{
+                    color: '#C4C4C4',
+                    textAlign: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}>
+                  Course Code
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.codeCover}>
+              <Text style={{color: '#000'}}>M. Sc</Text>
+              <View style={styles.courseCover}>
+                <Text
+                  style={{
+                    color: '#C4C4C4',
+                    textAlign: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}>
+                  Course Code
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.codeCover}>
+              <Text style={{color: '#000'}}>Ph. D</Text>
+              <View style={styles.courseCover}>
+                <Text
+                  style={{
+                    color: '#C4C4C4',
+                    textAlign: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}>
+                  Course Code
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.codeCover}>
+              <Text style={{color: '#000'}}>Part-time</Text>
+              <View style={styles.courseCover}>
+                <Text
+                  style={{
+                    color: '#C4C4C4',
+                    textAlign: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}>
+                  Course Code
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.radioCover}>
+            <TouchableWithoutFeedback onPress={() => setSelectedRadio(true)}>
+              <View style={styles.radioContain}>
+                <View
+                  style={{
+                    height: 24,
+                    width: 24,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#707070',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  {selectedRadio ? (
+                    <View
+                      style={{
+                        height: 12,
+                        width: 12,
+                        borderRadius: 6,
+                        backgroundColor: '#707070',
+                      }}
+                    />
+                  ) : null}
+                </View>
+                <Text style={{marginLeft: 7}}>Free</Text>
+              </View>
+            </TouchableWithoutFeedback>
+
+            <TouchableWithoutFeedback onPress={() => setSelectedRadio(false)}>
+              <View style={styles.radioContain}>
+                <View
+                  style={{
+                    height: 24,
+                    width: 24,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#707070',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  {!selectedRadio ? (
+                    <View
+                      style={{
+                        height: 12,
+                        width: 12,
+                        borderRadius: 6,
+                        backgroundColor: '#707070',
+                      }}
+                    />
+                  ) : null}
+                </View>
+                <Text style={{marginLeft: 7}}>For Sale</Text>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+
+          <Text style={{color: '#807E7E', fontStyle: 'italic'}}>
+            *Use original file name
+          </Text>
+
+          <TouchableWithoutFeedback onPress={() => setUpload(!upload)}>
+            <View style={styles.btnCover}>
+              <Text style={{color: '#fff'}}>Upload</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+
+        <Modal show={upload} close={() => setUpload(!upload)}>
+          <Text style={{fontWeight: 'bold', marginTop: 30}}>Upload Course</Text>
+          <View style={styles.uploadCover}>
+            <Text>
+              Upload PDF file (Max 2500kb){' '}
+              <Text style={{fontWeight: 'bold', color: '#50B12F'}}>Browse</Text>{' '}
+            </Text>
+          </View>
+
+          <Text style={{fontWeight: 'bold', marginTop: 10}}>
+            Upload Past Question (Optional)
+          </Text>
+          <View style={styles.uploadCover}>
+            <Text>
+              Upload PDF file (Max 2500kb){' '}
+              <Text style={{fontWeight: 'bold', color: '#50B12F'}}>Browse</Text>{' '}
+            </Text>
+          </View>
+
+          <Text style={{fontWeight: 'bold', marginTop: 10}}>
+            Upload Past Question (Optional)
+          </Text>
+          <TextInput
+            style={[styles.uploadCover, {height: 63, paddingLeft: 20}]}
+            onChangeText={setPrice}
+            value={price}
+            placeholder="Input Material Price"
+          />
+
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <TouchableWithoutFeedback onPress={() => setUpload(!upload)}>
+              <View
+                style={[
+                  styles.provideCover,
+                  {backgroundColor: '#C4C4C4', width: 160, height: 56},
+                ]}>
+                <Text
+                  style={{
+                    color: '#fff',
+                    textAlign: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}>
+                  Cancel
+                </Text>
+              </View>
+            </TouchableWithoutFeedback>
             <View
               style={[
                 styles.provideCover,
-                {backgroundColor: '#C4C4C4', width: 160, height: 56},
+                {width: 160, height: 56, marginLeft: 10},
               ]}>
               <Text
                 style={{
@@ -284,28 +238,83 @@ const HomeScreen = () => {
                   marginLeft: 'auto',
                   marginRight: 'auto',
                 }}>
-                Cancel
+                Save
               </Text>
             </View>
-          </TouchableWithoutFeedback>
-          <View
-            style={[
-              styles.provideCover,
-              {width: 160, height: 56, marginLeft: 10},
-            ]}>
-            <Text
-              style={{
-                color: '#fff',
-                textAlign: 'center',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}>
-              Save
-            </Text>
           </View>
-        </View>
-      </Modal>
-    </ScrollView>
+        </Modal>
+
+        {/* payment modal section */}
+
+        <Modal show={payment} close={() => setPayment(!payment)}>
+          <Text style={{fontWeight: 'bold', marginTop: 30}}>
+            Provide your account details
+          </Text>
+
+          <View style={[styles.uploadCover, {height: 63, paddingLeft: 0}]}>
+            <TextInput
+              // style={}
+              onChangeText={setPrice}
+              value={price}
+              placeholder="Account Name"
+            />
+          </View>
+
+          <View style={[styles.uploadCover, {height: 63, paddingLeft: 0}]}>
+            <TextInput
+              // style={}
+              onChangeText={setPrice}
+              value={price}
+              placeholder="Bank"
+            />
+          </View>
+
+          <View style={[styles.uploadCover, {height: 63, paddingLeft: 0}]}>
+            <TextInput
+              // style={}
+              onChangeText={setPrice}
+              value={price}
+              placeholder="Account Number"
+            />
+          </View>
+
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <TouchableWithoutFeedback onPress={() => setPayment(!payment)}>
+              <View
+                style={[
+                  styles.provideCover,
+                  {backgroundColor: '#C4C4C4', width: 160, height: 56},
+                ]}>
+                <Text
+                  style={{
+                    color: '#fff',
+                    textAlign: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}>
+                  Cancel
+                </Text>
+              </View>
+            </TouchableWithoutFeedback>
+            <View
+              style={[
+                styles.provideCover,
+                {width: 160, height: 56, marginLeft: 10},
+              ]}>
+              <Text
+                style={{
+                  color: '#fff',
+                  textAlign: 'center',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}>
+                Save
+              </Text>
+            </View>
+          </View>
+        </Modal>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -317,6 +326,7 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
     height: '100%',
+    backgroundColor: '#fff',
   },
   provideCover: {
     width: 242,

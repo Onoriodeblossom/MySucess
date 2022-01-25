@@ -67,7 +67,7 @@ const RecordScreen = () => {
 
 
   const mapRecords = records.map((v,i) => (
-    <View key={i} style={[styles.coverCourse, {borderColor: "#fff", borderWidth: 0}]}>
+    <View key={i} style={[styles.coverCourse, { borderWidth: 0}]}>
     <View>
       <Text style={styles.courseName}>{v.name} . {v.level}</Text>
       <Text style={styles.courseDetails}>
@@ -80,6 +80,9 @@ const RecordScreen = () => {
   ))
 
   return (
+    <View style={{backgroundColor:"#fff", flex:1
+    }}>
+      
     <ScrollView>
       <NavSection />
       <View style={{width: '90%', marginLeft: 'auto', marginRight: 'auto'}}>
@@ -134,6 +137,8 @@ const RecordScreen = () => {
       </Modal>
 
     </ScrollView>
+
+    </View>
   );
 };
 

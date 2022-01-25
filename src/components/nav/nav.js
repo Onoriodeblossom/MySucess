@@ -18,8 +18,10 @@ import {
 } from 'react-native';
 import Menu from 'react-native-vector-icons/Entypo';
 import Cancel from 'react-native-vector-icons/AntDesign';
+import {useNavigation} from '@react-navigation/native';
 
-const NavSection = () => {
+const NavSection = ({}) => {
+  const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.navCover}>
@@ -52,6 +54,21 @@ const NavSection = () => {
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setModalVisible(!modalVisible)}>
                     <Cancel name="close" size={24} />
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.navBars}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                    <Text style={styles.menuText}>Home</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('Record')}>
+                    <Text style={styles.menuText}>Record</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('Wallet')}>
+                    <Text style={styles.menuText}>Wallet</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -117,6 +134,11 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  navBars: {
+    marginTop: 20,
+    height: 120,
     justifyContent: 'space-between',
   },
 });

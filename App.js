@@ -24,54 +24,48 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NavSection from './src/components/nav/nav';
 import HomeScreen from './src/pages/home/home';
 import RecordScreen from './src/pages/records/records';
 import WalletScreen from './src/pages/wallet/wallet';
 
-const Section = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+
+
+const Stack = createNativeStackNavigator();
+
+export const App=()=>{
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="Home" component={HomeScreen} 
+        options={{
+          // headerShow:false
+          headerShown:false
+        }
+        }
+        />
+
+        <Stack.Screen name="Wallet" component={WalletScreen}    
+         options={{
+          // headerShow:false
+          headerShown:false
+        }}
+        />
+
+        <Stack.Screen name="Record" component={RecordScreen}    options={{
+          // headerShow:false
+          headerShown:false
+        }}
+         />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
+}
 
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    backgroundColor: '#fff',
-  };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      {/* <HomeScreen /> */}
-      <RecordScreen />
-      {/* <WalletScreen /> */}
-    </SafeAreaView>
-  );
-};
 
 
 const styles = StyleSheet.create({
